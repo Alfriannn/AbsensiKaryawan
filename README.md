@@ -1,66 +1,205 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sistem Absensi Karyawan
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistem Absensi Karyawan adalah aplikasi berbasis web yang dibangun menggunakan Laravel untuk memudahkan pengelolaan absensi dan kehadiran karyawan dalam suatu organisasi atau perusahaan.
 
-## About Laravel
+## 🚀 Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Manajemen Karyawan**: Kelola data karyawan dengan mudah
+- **Absensi Realtime**: Sistem absensi masuk dan pulang dengan timestamp
+- **Dashboard Admin**: Panel kontrol untuk admin mengelola sistem
+- **Laporan Absensi**: Generate laporan kehadiran karyawan
+- **Manajemen Shift**: Pengaturan jam kerja dan shift karyawan
+- **Notifikasi**: Sistem notifikasi untuk keterlambatan dan absensi
+- **Export Data**: Export laporan ke format Excel/PDF
+- **Responsive Design**: Tampilan yang responsive untuk berbagai perangkat
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠️ Teknologi yang Digunakan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Backend**: Laravel 10.x
+- **Frontend**: Bootstrap 5, HTML5, CSS3, JavaScript
+- **Database**: MySQL
+- **Authentication**: Laravel Sanctum/Breeze
+- **Icons**: Font Awesome
+- **Charts**: Chart.js (untuk visualisasi data)
 
-## Learning Laravel
+## 📋 Persyaratan Sistem
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Pastikan sistem Anda memenuhi persyaratan berikut:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP >= 8.1
+- Composer
+- MySQL >= 5.7
+- Node.js & NPM
+- Git
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🔧 Instalasi
 
-## Laravel Sponsors
+### 1. Clone Repository
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+```bash
+git clone https://github.com/Alfriannn/AbsensiKaryawan.git
+cd AbsensiKaryawan
+```
 
-### Premium Partners
+### 2. Install Dependencies
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+# Install PHP dependencies
+composer install
 
-## Contributing
+# Install Node.js dependencies
+npm install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 3. Konfigurasi Environment
 
-## Code of Conduct
+```bash
+# Copy file environment
+cp .env.example .env
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# Generate application key
+php artisan key:generate
+```
 
-## Security Vulnerabilities
+### 4. Konfigurasi Database
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Edit file `.env` dan sesuaikan konfigurasi database:
 
-## License
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=absensi_karyawan
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 5. Jalankan Migrasi Database
+
+```bash
+# Jalankan migrasi
+php artisan migrate
+
+# Jalankan seeder (optional)
+php artisan db:seed
+```
+
+### 6. Build Assets
+
+```bash
+# Compile assets
+npm run dev
+
+# Untuk production
+npm run build
+```
+
+### 7. Jalankan Aplikasi
+
+```bash
+# Jalankan server development
+php artisan serve
+```
+
+Aplikasi akan berjalan di `http://localhost:8000`
+
+## 👥 Default Login
+
+Setelah menjalankan seeder, gunakan akun berikut untuk login:
+
+**Admin:**
+- Email: admin@admin.com
+- Password: admin123
+
+**Karyawan:**
+- Email: karyawan@karyawan.com
+- Password: karyawan123
+
+## 🗃️ Struktur Database
+
+### Tabel Utama:
+- `users` - Data pengguna (admin, karyawan)
+- `employees` - Data karyawan
+- `attendances` - Data absensi
+- `shifts` - Data shift kerja
+- `departments` - Data departemen
+- `positions` - Data jabatan
+
+## 📱 Penggunaan
+
+### Untuk Admin:
+1. Login menggunakan akun admin
+2. Kelola data karyawan di menu Master Data
+3. Atur shift kerja dan jam operasional
+4. Monitor absensi karyawan realtime
+5. Generate laporan absensi
+
+### Untuk Karyawan:
+1. Login menggunakan akun karyawan
+2. Lakukan absensi masuk di halaman dashboard
+3. Lakukan absensi pulang saat selesai bekerja
+4. Lihat riwayat absensi pribadi
+5. Lihat jadwal shift kerja
+
+## 🔒 Keamanan
+
+- Implementasi authentication dan authorization
+- Validasi input untuk mencegah SQL injection
+- CSRF protection pada semua form
+- Password hashing menggunakan bcrypt
+- Session management yang aman
+
+## 📊 Fitur Laporan
+
+- Laporan absensi harian
+- Laporan absensi bulanan
+- Laporan keterlambatan
+- Laporan overtime
+- Export ke format Excel dan PDF
+
+## 🎨 Kustomisasi
+
+### Mengubah Logo
+Ganti file logo di `public/images/logo.png`
+
+### Mengubah Warna Theme
+Edit file CSS di `resources/css/app.css`
+
+### Menambah Fitur Baru
+Ikuti struktur MVC Laravel yang sudah ada
+
+## 🐛 Troubleshooting
+
+### Masalah Umum:
+
+**1. Error 500 - Internal Server Error**
+```bash
+# Pastikan permission folder storage dan bootstrap/cache
+chmod -R 775 storage
+chmod -R 775 bootstrap/cache
+```
+
+**2. Database Connection Error**
+- Pastikan MySQL service berjalan
+- Periksa konfigurasi database di file `.env`
+- Pastikan database sudah dibuat
+
+**3. Assets Not Loading**
+```bash
+# Rebuild assets
+npm run dev
+php artisan cache:clear
+```
+
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Silakan ikuti langkah berikut:
+
+1. Fork repository ini
+2. Buat branch fitur baru (`git checkout -b feature/fitur-baru`)
+3. Commit perubahan (`git commit -am 'Menambahkan fitur baru'`)
+4. Push ke branch (`git push origin feature/fitur-baru`)
+5. Buat Pull Request
+---
+
+⭐ Jika proyek ini bermanfaat, jangan lupa untuk memberikan star di repository ini!
